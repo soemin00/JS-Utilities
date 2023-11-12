@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Code Editor</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Poppins:wght@200;300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/1fe55fc233.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="left">
+			 <label><i class="fa-brands fa-html5"></i>HTML</label>
+			 <textarea id="html-code" onkeyup="run()"></textarea>
+
+			 <label><i class="fa-brands fa-css3-alt"></i>CSS</label>
+			 <textarea id="css-code" onkeyup="run()"></textarea>
+
+			 <label><i class="fa-brands fa-square-js"></i>JAVASCRIPT</label>
+			 <textarea id="js-code" onkeyup="run()"></textarea>
+		</div>
+		<div class="right">
+			<label><i class="fa-solid fa-play"></i>OUTPUT</label>
+			<iframe id="output"></iframe>
+		</div>
+	</div>
+
+
+
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
