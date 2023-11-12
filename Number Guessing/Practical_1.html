@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Guess the number</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+			box-sizing: border-box;
+			color: black;
+		}
+		.container{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			width: 500px;
+			height: auto;
+			border-radius: 5px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  			background-color: lightblue;
+		}
+		h2,p{
+			margin-top: 40px;
+			line-height: 35px;
+			text-align: center;
+
+		}
+		p {
+
+  			color: #555;
+  			font-size: 16px;
+  			margin-bottom: 20px;
+		}
+		input[type="number"] {
+			width: 70%;
+			height: 40px;
+			margin: 40px 70px;
+			box-sizing: border-box;
+
+		}
+		button {
+			margin: 0px 180px;
+			 padding: 10px 15px;
+			 background-color: #007bff;
+			 color: #fff;
+			 border: none;
+			 border-radius: 5px;
+			 font-size: 16px;
+			 cursor: pointer;
+			 transition: background-color 0.2s ease;
+			 width: 30%;
+			 box-sizing: border-box;
+		}
+		button:hover {
+  			background-color: #0056b3;
+}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>GUESS THE CORRECT NUMBER <br> BETWEEN 1 - 100</h2>
+		<input type="number" id="guess" min="1" max="100">
+		<button id="submitBtn">Submit</button>
+		<p id="message"></p>
+	</div>
+	<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded', function() {
+  const submitBtn = document.getElementById('submitBtn');
+  const guessInput = document.getElementById('guess');
+  const message = document.getElementById('message');
+
+  let randomNumber = generateRandomNumber();
+
+  submitBtn.addEventListener('click', function() {
+    const userGuess = parseInt(guessInput.value, 10);
+    if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+      message.textContent = 'Please enter a valid number between 1 and 100.';
+    } else {
+      checkGuess(userGuess);
+    }
+  });
+
+  function generateRandomNumber() {
+    return Math.floor(Math.random() * 100) + 1;
+  }
+
+  function checkGuess(guess) {
+    if (guess === randomNumber) {
+      message.textContent = 'Congratulations! You guessed the correct number.';
+    } else if (guess < randomNumber) {
+      message.textContent = 'Too low! Try a higher number.';
+    } else {
+      message.textContent = 'Too high! Try a lower number.';
+    }
+  }
+});
+	</script>
+</body>
+</html>
